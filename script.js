@@ -26,10 +26,10 @@ function setImage(mode){
 
 //Set theme
 function setTheme(mode) {
-    if(mode === 'dark') {
+    if(mode === 'dark') {        
         nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
         textbox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    } else {
+    } else {        
         nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
         textbox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
     }
@@ -41,11 +41,27 @@ function setTheme(mode) {
 function swithTheme(event) {
     if(event.target.checked) {
         rootElement.setAttribute('data-theme', 'dark')
+        localStorage.setItem('theme', 'dark');
         setTheme('dark')
     } else {
         rootElement.setAttribute('data-theme', 'light')
+        localStorage.setItem('theme', 'light');
         setTheme('light')
     }
 }
 
+//validate local storage
+function validateLocalStorage() {
+    const mode = localStorage.getItem('theme');    
+    if(mode === 'dark') {
+        toggleSwitch.checked = true;     
+        rootElement.setAttribute('data-theme', 'dark')   
+    } else {
+        toggleSwitch.checked = false;
+        rootElement.setAttribute('data-theme', 'light')
+    }
+    setTheme(mode);
+}
+
+validateLocalStorage();
 toggleSwitch.addEventListener('change', swithTheme);
