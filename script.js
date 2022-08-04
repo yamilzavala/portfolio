@@ -7,9 +7,12 @@ const img1 = document.getElementById('image1');
 const img2 = document.getElementById('image2');
 const img3 = document.getElementById('image3');
 
-//Set icon and text
+const DARK_THEME = 'dark'
+const LIGHT_THEME = 'light'
+
+
 function setIconAndText(mode) {
-    if(mode === 'dark') {
+    if(mode === DARK_THEME) {
         toggleIcon.children[0].textContent = 'Light Mode';
         toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon');
     } else {
@@ -24,9 +27,8 @@ function setImage(mode){
         img3.src = `./img/undraw_conceptual_idea_${mode}.svg`;   
 }
 
-//Set theme
 function setTheme(mode) {
-    if(mode === 'dark') {        
+    if(mode === DARK_THEME) {        
         nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
         textbox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
     } else {        
@@ -37,12 +39,11 @@ function setTheme(mode) {
     setImage(mode);
 }
 
-//Switch theme
 function swithTheme(event) {
     if(event.target.checked) {
-        rootElement.setAttribute('data-theme', 'dark')
-        localStorage.setItem('theme', 'dark');
-        setTheme('dark')
+        rootElement.setAttribute('data-theme', DARK_THEME)
+        localStorage.setItem('theme', DARK_THEME);
+        setTheme(DARK_THEME)
     } else {
         rootElement.setAttribute('data-theme', 'light')
         localStorage.setItem('theme', 'light');
@@ -50,12 +51,11 @@ function swithTheme(event) {
     }
 }
 
-//validate local storage
 function validateLocalStorage() {
     const mode = localStorage.getItem('theme');    
-    if(mode === 'dark') {
+    if(mode === DARK_THEME) {
         toggleSwitch.checked = true;     
-        rootElement.setAttribute('data-theme', 'dark')   
+        rootElement.setAttribute('data-theme', DARK_THEME)   
     } else {
         toggleSwitch.checked = false;
         rootElement.setAttribute('data-theme', 'light')
