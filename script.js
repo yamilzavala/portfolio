@@ -45,9 +45,9 @@ function swithTheme(event) {
         localStorage.setItem('theme', DARK_THEME);
         setTheme(DARK_THEME)
     } else {
-        rootElement.setAttribute('data-theme', 'light')
-        localStorage.setItem('theme', 'light');
-        setTheme('light')
+        rootElement.setAttribute('data-theme', LIGHT_THEME)
+        localStorage.setItem('theme', LIGHT_THEME);
+        setTheme(LIGHT_THEME)
     }
 }
 
@@ -58,7 +58,7 @@ function validateLocalStorage() {
         rootElement.setAttribute('data-theme', DARK_THEME)   
     } else {
         toggleSwitch.checked = false;
-        rootElement.setAttribute('data-theme', 'light')
+        rootElement.setAttribute('data-theme', LIGHT_THEME)
     }
     setTheme(mode);
 }
