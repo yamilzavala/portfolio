@@ -108,8 +108,8 @@ a:focus {
 }
 
 img {
-  height: 200px;
-  width: 200px;  
+  height: 300px;
+  width: 300px;  
 }
 
 /* Projects Section */
@@ -181,11 +181,18 @@ p {
 
 /* Contact Section */
 .fab {
-  font-size: 100px;
+  font-size: 150px;
   margin-right: 50px;
   cursor: pointer;
   color: var(--primary-color);
   transition: all .5s;
+}
+
+
+#contact {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
 }
 
 .fab:hover {
@@ -264,7 +271,12 @@ input:checked + .slider::before {
   border-radius: 50%;
 }
 
+.solcial-icons {
+  width:100%;
+}
+
 .fas {
   font-size: 30px;
   margin-right: 5px;
 }
+
